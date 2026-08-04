@@ -36,7 +36,7 @@
 #define CHECKED3(v) ((v)&(vga.vmemwrap-1))
 #define CHECKED4(v) ((v)&((vga.vmemwrap>>2)-1))
 
-
+ra
 #ifdef VGA_KEEP_CHANGES
 #define MEM_CHANGED( _MEM ) vga.changes.map[ (_MEM) >> VGA_CHANGE_SHIFT ] |= vga.changes.writeMask;
 //#define MEM_CHANGED( _MEM ) vga.changes.map[ (_MEM) >> VGA_CHANGE_SHIFT ] = 1;
@@ -1106,6 +1106,7 @@ void VGA_SetupHandlers(void) {
 	}
 range_done:
 	PAGING_ClearTLB();
+	PAGING_UnlinkPages(VGA_PAGE_A0, 32);
 }
 
 void VGA_StartUpdateLFB(void) {

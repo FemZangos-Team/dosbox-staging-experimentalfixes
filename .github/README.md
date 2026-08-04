@@ -1,3 +1,4 @@
+
 # GitHub CI workflows
 
 This directory holds the GitHub Actions configuration for DOSBox Staging:
